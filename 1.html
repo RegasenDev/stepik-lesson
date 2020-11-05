@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.css" integrity="sha512-xIf9AdJauwKIVtrVRZ0i4nHP61Ogx9fSRAkCLecmE2dL/U8ioWpDvFCAy4dcfecN72HHB9+7FfQj3aiO68aaaw==" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js" integrity="sha512-UxcTlYsLkcuGZL9JNnMsfo3p7VFSmcgBjH1VUSM82Okk5ni52bk7vz9f2p+D1VnMcNUmMzbzgWqWcdJ2j8Svow==" crossorigin="anonymous"></script>
+        
+        <style>
+            #editor textarea {
+                width: 600px;
+                height: 800px;
+                display: inline-block;
+                cursor: pointer;
+            }
+            #editor > #editor-show {
+                overflow: auto;
+                width: 60%;
+                height: 800px;
+                float: right;
+                display: inline-block;
+                border: 1px solid #ccc;
+                position: absolute;
+            }
+            #editor > div:first-child {
+                width: 650px;
+                float: left;
+            }
+            .CodeMirror {
+                height: 800px;
+            }
+        </style>
+    </head>
+
+    <body>
+        Структура HTML документа. <br />
+        В окно ниже, напишите базовую структуру HTML документа. 
+        <div id='editor'>
+            <div><textarea id="editor-textarea" oninput="set_code()"></textarea></div>
+            <div id="editor-show"></div>
+        </div>
+
+        <script>
+            function set_code()
+            {
+                var text = document.getElementById('editor-textarea').value;
+                document.getElementById('editor-show').innerHTML = text;
+            }
+        </script>
+        <script>
+          var editor = CodeMirror.fromTextArea(document.getElementById('editor-textarea'), {
+    height: "400px",
+    parserfile: ["parsexml.js", "parsecss.js", "tokenizejavascript.js", "parsejavascript.js", "parsehtmlmixed.js"],
+    stylesheet: ["css/xmlcolors.css", "css/jscolors.css", "css/csscolors.css"],
+    path: "js/",
+            lineNumbers: true,
+  });
+  editor.on("change", function(a, b) {
+    
+                document.getElementById('editor-show').innerHTML = editor.getValue();
+  });
+        </script>
+    </body>
+</html>

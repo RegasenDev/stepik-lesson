@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            #header {
+                background: url(https://i.pinimg.com/originals/46/cd/95/46cd957ab7c36ca183b4c8b658885adb.jpg);
+                height: 21%;
+            }
+            #sidebar {
+                width: 400px;
+                position: absolute;
+                background: palegoldenrod;
+                height: 100%;
+            }
+            #content {
+                background: paleturquoise;
+                margin-left: 400px;
+                height: 100%;
+                padding: 15px;
+            }
+            #content > table {
+                width: 100%;
+            }
+            #logo {
+                float: left;
+                padding: 50px;
+            }
+
+            #info {
+                float: right;
+                padding: 50px;
+            }
+            #menu {
+                padding: 50px;
+            }
+            #menu > a {
+                display: block;
+            }
+
+            .menu__level {
+                margin-left: 15px;
+            }
+            .menu__level > a {
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body>
+            <div id="header">
+                <div id="logo">
+                    <img width="200" height="100" src="https://cdn.vox-cdn.com/thumbor/p01ezbiuDHgRFQ-htBCd7QxaYxo=/0x105:2012x1237/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg" />
+                </div>
+                <div id="info">
+                    Почта: test@test.ru<br />
+                    Телефон: +7 (800) 555-35-35
+                </div>
+            </div>
+            <div id="sidebar">
+                <div id="menu">
+                    <a href="#">1 Основы HTML</a>
+                    <div class="menu__level">
+                        <a href="#">1.1 HTML</a>
+                        <a href="#">1.2 Структура HTML документа</a>
+                        <a href="#">1.3 Работа с HTML тегами</a>
+                        <a href="#">1.4 Работа с HTML таблицами</a>
+                    </div>
+                    <a href="#">1 Основы CSS</a>
+                    <div class="menu__level">
+                        <a href="#">2.1 Основы работы с языком CSS</a>
+                        <a href="#">2.2 Продвинутая работа с CSS</a>
+                        <a href="#">2.3 Основные CSS свойства</a>
+                    </div>
+                        <a href="#">3.1 Работа с отступами</a>
+                        <a href="#">3.2 Позиционирование</a>
+                        <a href="#">3.3 Многоколоночный макет</a>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <table border="1">
+                    <tr>
+                        <td>Тэг</td>
+                        <td>Значение</td>
+                    </tr>
+                    <tr>
+                        <td>h1</td>
+                        <td><h1>Заголовок первого уровня</h1></td>
+                    </tr>
+                    <tr>
+                        <td>h2</td>
+                        <td><h2>Заголовок второго уровня</h2></td>
+                    </tr>
+                    <tr>
+                        <td>p</td>
+                        <td><p>Абзац</p></td>
+                    </tr>
+                    <tr>
+                        <td>a</td>
+                        <td><a href="#">Ссылка</a></td>
+                    </tr>
+                </table>
+            </div>
+    </body>
+</html>
