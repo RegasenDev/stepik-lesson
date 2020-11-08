@@ -57,18 +57,32 @@
 
   <body>
     <div id="request">
-        Структура HTML документа. <br />
-        В окно ниже, напишите базовую структуру HTML документа.
+        Позиционирование<br>
+        На нашем будущем сайте будет имется шапка. Слева будет логотип, а слева контактные данные владельца сайта. <br>
+        В тэге <b>style</b>, вам необходимо прописать стиль для блока #logo и блока #info, чтобы выровнять их как на скриншоте.<br>Отступы блоков 50px. Использовать float.<br>
+        <img src="5.png" /><br>
     </div>
     <button onclick="is_res()">Проверить решение</button>
-    <div id="success" style="display: none;">Вы успешно решили задание. Ваш код: <b>213483254</b></div>
-    <div id="error" style="display: none;">Введена наверная HTML разметка</div>
+    <div id="success" style="display: none;">Вы успешно решили задание. Ваш код: <b>213124321245</b></div>
+    <div id="error" style="display: none;">Введена неверная HTML разметка</div>
     <div id="editor">
-      <div><textarea id="editor-textarea" oninput="set_code()"></textarea></div>
+      <div><textarea id="editor-textarea" oninput="set_code()" value="asdf"></textarea></div>
       <div id="editor-show"></div>
     </div>
 
     <script>
+      document.getElementById("editor-textarea").value = `<style>
+</style>
+  <div id="header">
+  <div id="logo">
+    <img width="200" height="100" src="https://cdn.vox-cdn.com/thumbor/p01ezbiuDHgRFQ-htBCd7QxaYxo=/0x105:2012x1237/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg">
+  </div>
+  <div id="info">
+    Почта: test@test.ru<br>
+    Телефон: +7 (800) 555-35-35
+  </div>
+</div>`;
+                    set_code();
       function set_code() {
         var text = document.getElementById("editor-textarea").value;
         document.getElementById("editor-show").innerHTML = text;
@@ -76,20 +90,19 @@
       function is_res() {
         var text = window['t'];
         var arr = [
-            '<html',
-            '</html>',
-            '<body',
-            '</body>',
-            '<head',
-            '</head>',
+            'float',
+            'right',
+            'left',
+            'padding',
+            '50px'
         ];
         var flag = false;
         for(var i = 0; i < arr.length; i++) {
-            console.log(text, text.indexOf(arr[i]));
+            console.log(arr[i], text.indexOf(arr[i]));
             if(text.indexOf(arr[i]) == -1) flag = true;
         }
 
-        if(flag == false) localStorage.setItem('lesson-1', text);
+        if(flag == false) localStorage.setItem('lesson-2', text);
         if(flag == false) document.getElementById('success').style.display = 'block';
         else document.getElementById('error').style.display = 'block';
       }
@@ -120,6 +133,8 @@
         document.getElementById("editor-show").innerHTML = editor.getValue();
         window['t'] = editor.getValue();
       });
+        document.getElementById("editor-show").innerHTML = editor.getValue();
+        window['t'] = editor.getValue();
     </script>
   </body>
 </html>

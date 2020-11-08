@@ -57,18 +57,41 @@
 
   <body>
     <div id="request">
-        Структура HTML документа. <br />
-        В окно ниже, напишите базовую структуру HTML документа.
+        Работа с отступами.<br>
+        В одном из прошлых заданий вы делали HTML разметку меню. Теперь необходимо добавить отступ всему меню во все стороны 50px, блоку с подпунктами меню (.menu__level) справа 15px.<br>
+        Делать это необходимо в тэге &lt;style&gt;<br>
+        Каждая ссылка должна переносится на новую строку (#menu > a | display)<br>
+        <img src="1.1.png"/> <br><br>
     </div>
     <button onclick="is_res()">Проверить решение</button>
-    <div id="success" style="display: none;">Вы успешно решили задание. Ваш код: <b>213483254</b></div>
-    <div id="error" style="display: none;">Введена наверная HTML разметка</div>
+    <div id="success" style="display: none;">Вы успешно решили задание. Ваш код: <b>466634543456432</b></div>
+    <div id="error" style="display: none;">Введена неверная HTML разметка</div>
     <div id="editor">
-      <div><textarea id="editor-textarea" oninput="set_code()"></textarea></div>
+      <div><textarea id="editor-textarea" oninput="set_code()" value="asdf"></textarea></div>
       <div id="editor-show"></div>
     </div>
 
     <script>
+      document.getElementById("editor-textarea").value = `<style></style>
+<div id="menu">
+  <a href="#">1 Основы HTML</a>
+  <div class="menu__level">
+    <a href="#">1.1 HTML</a>
+    <a href="#">1.2 Структура HTML документа</a>
+    <a href="#">1.3 Работа с HTML тегами</a>
+    <a href="#">1.4 Работа с HTML таблицами</a>
+  </div>
+  <a href="#">2 Основы CSS</a>
+  <div class="menu__level">
+    <a href="#">2.1 Основы работы с языком CSS</a>
+    <a href="#">2.2 Продвинутая работа с CSS</a>
+    <a href="#">2.3 Основные CSS свойства</a>
+  </div>
+  <a href="#">3.1 Работа с отступами</a>
+  <a href="#">3.2 Позиционирование</a>
+  <a href="#">3.3 Многоколоночный макет</a>
+</div>`;
+                    set_code();
       function set_code() {
         var text = document.getElementById("editor-textarea").value;
         document.getElementById("editor-show").innerHTML = text;
@@ -76,20 +99,20 @@
       function is_res() {
         var text = window['t'];
         var arr = [
-            '<html',
-            '</html>',
-            '<body',
-            '</body>',
-            '<head',
-            '</head>',
+            'padding: 50px;',
+            '#menu',
+            '.menu__level',
+            'margin-left: 15px;',
+            '#menu > a',
+            'display: block'
         ];
         var flag = false;
         for(var i = 0; i < arr.length; i++) {
-            console.log(text, text.indexOf(arr[i]));
+            console.log(arr[i], text.indexOf(arr[i]));
             if(text.indexOf(arr[i]) == -1) flag = true;
         }
 
-        if(flag == false) localStorage.setItem('lesson-1', text);
+        if(flag == false) localStorage.setItem('lesson-2', text);
         if(flag == false) document.getElementById('success').style.display = 'block';
         else document.getElementById('error').style.display = 'block';
       }
@@ -120,6 +143,8 @@
         document.getElementById("editor-show").innerHTML = editor.getValue();
         window['t'] = editor.getValue();
       });
+        document.getElementById("editor-show").innerHTML = editor.getValue();
+        window['t'] = editor.getValue();
     </script>
   </body>
 </html>

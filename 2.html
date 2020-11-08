@@ -57,12 +57,14 @@
 
   <body>
     <div id="request">
-        Структура HTML документа. <br />
-        В окно ниже, напишите базовую структуру HTML документа.
+        Работа с HTML тегами и работа с HTML таблицами <br />
+        В окно ниже необходимо написать HTML таблицы, в которой два столбца Тэг и Значение, скриншот правильной таблицы приложен ниже.
+        <br />
+        <img src="2.png" />
     </div>
     <button onclick="is_res()">Проверить решение</button>
-    <div id="success" style="display: none;">Вы успешно решили задание. Ваш код: <b>213483254</b></div>
-    <div id="error" style="display: none;">Введена наверная HTML разметка</div>
+    <div id="success" style="display: none;">Вы успешно решили задание. Ваш код: <b>4234234231</b></div>
+    <div id="error" style="display: none;">Введена неверная HTML разметка</div>
     <div id="editor">
       <div><textarea id="editor-textarea" oninput="set_code()"></textarea></div>
       <div id="editor-show"></div>
@@ -76,20 +78,24 @@
       function is_res() {
         var text = window['t'];
         var arr = [
-            '<html',
-            '</html>',
-            '<body',
-            '</body>',
-            '<head',
-            '</head>',
+            '<table',
+            '</table>',
+            '<tr',
+            '</tr>',
+            '<td',
+            '</td>',
+            '<b',
+            '</b>',
+            '<i>',
+            '</i>',
         ];
         var flag = false;
         for(var i = 0; i < arr.length; i++) {
-            console.log(text, text.indexOf(arr[i]));
+            console.log(arr[i], text.indexOf(arr[i]));
             if(text.indexOf(arr[i]) == -1) flag = true;
         }
 
-        if(flag == false) localStorage.setItem('lesson-1', text);
+        if(flag == false) localStorage.setItem('lesson-2', text);
         if(flag == false) document.getElementById('success').style.display = 'block';
         else document.getElementById('error').style.display = 'block';
       }

@@ -57,12 +57,26 @@
 
   <body>
     <div id="request">
-        Структура HTML документа. <br />
-        В окно ниже, напишите базовую структуру HTML документа.
+        Работа с HTML тегами
+        <br />
+        На нашем будущем сайте будет меню. Выглядеть будет оно так, как показано на скриншоте. Вам необходимо сделать HTML разметку этого меню. Подпункты необходимо выделять в блоки. <br>
+        Учитывайте аттрибуты id и class, как на примере.<br>
+        <b>Пример:</b><br>
+        <pre>
+            &lt;div id="menu"&gt;
+            &lt;li>1 пункт&lt;/li&gt;
+            &lt;div class="menu__level"&gt;
+            &lt;li>1.1 подпункт&lt;/li&gt;
+            &lt;li>1.2 подпункт&lt;/li&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+        </pre>
+
+        <br><br><img src="1.1.png" /><br><br>
     </div>
     <button onclick="is_res()">Проверить решение</button>
-    <div id="success" style="display: none;">Вы успешно решили задание. Ваш код: <b>213483254</b></div>
-    <div id="error" style="display: none;">Введена наверная HTML разметка</div>
+    <div id="success" style="display: none;">Вы успешно решили задание. Ваш код: <b>435346121243</b></div>
+    <div id="error" style="display: none;">Введена неверная HTML разметка</div>
     <div id="editor">
       <div><textarea id="editor-textarea" oninput="set_code()"></textarea></div>
       <div id="editor-show"></div>
@@ -76,20 +90,23 @@
       function is_res() {
         var text = window['t'];
         var arr = [
-            '<html',
-            '</html>',
-            '<body',
-            '</body>',
-            '<head',
-            '</head>',
+            '<li',
+            '</li>',
+            '<div',
+            '</div>',
+            'id="menu"',
+            'class="menu__level"',
+            "Основы HTML",
+            "Работа",
+            "тегами"
         ];
         var flag = false;
         for(var i = 0; i < arr.length; i++) {
-            console.log(text, text.indexOf(arr[i]));
+            console.log(arr[i], text.indexOf(arr[i]));
             if(text.indexOf(arr[i]) == -1) flag = true;
         }
 
-        if(flag == false) localStorage.setItem('lesson-1', text);
+        if(flag == false) localStorage.setItem('lesson-2', text);
         if(flag == false) document.getElementById('success').style.display = 'block';
         else document.getElementById('error').style.display = 'block';
       }
