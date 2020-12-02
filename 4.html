@@ -99,7 +99,8 @@
       function is_res() {
         var text = window['t'];
         var arr = [
-            'padding: 50px;',
+            'padding:',
+            '50px',
             '#menu',
             '.menu__level',
             'left:',
@@ -108,7 +109,6 @@
         ];
         var flag = false;
         for(var i = 0; i < arr.length; i++) {
-            console.log(arr[i], text.indexOf(arr[i]));
             if(text.indexOf(arr[i]) == -1) flag = true;
         }
 
